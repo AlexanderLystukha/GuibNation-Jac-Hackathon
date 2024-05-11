@@ -1,12 +1,15 @@
+import AI
+
 def main():
+    relativePath = "../GoodWords.txt"
     Tutorial()    
     gameover = False
     while (gameover is False): #the actual game loop itself
         for days in range(1,6): #the days loop, goes through day 1 to 5
             print(days)
-            for messages in range(1,MessagesPerDay): #the messages the user gets per day dictated by the constant
+            for messages in range(1,AI.MessagesPerDay): #the messages the user gets per day dictated by the constant
                 prompt = input("Enter message here: ")
-                message = AIPrint(prompt)
+                message = AI.AIPrint(prompt)
                     
         gameover = True
         #f = AIPrint("say yo mama")
@@ -27,8 +30,8 @@ def LovePoints():
     prompt = "fuiagfa"
 
 
-def Reader():
+def Reader(relativePath):
 
-    f = open("AIPrompt.txt", "r")
+    f = open(relativePath, "r")
     
     print(f.readline())
