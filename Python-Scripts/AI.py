@@ -6,10 +6,6 @@ client = OpenAI(
         api_key='sk-proj-ZuczHEBzkxt0DUwDz1YTT3BlbkFJ8jgW8msTKW85MP2EM3wF'
     )
 
-def main():
-   f = AIPrint("say yo mama")
-   print(f)
-
 def AIPrint(prompt): #print a message depending on the prompt that was passed to the function
 
     stream = client.chat.completions.create(
@@ -21,4 +17,3 @@ def AIPrint(prompt): #print a message depending on the prompt that was passed to
         if chunk.choices[0].delta.content is not None:
              hi = chunk.choices[0].delta.content, end=""
              return hi
-main()
