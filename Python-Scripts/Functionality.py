@@ -27,8 +27,13 @@ def LovePointsFinder(message):
 
     wordList = str(message).split
 
-    print(wordList)
-
+    for word in wordList:
+        for goodline in goodwords:
+            if (goodline == word):
+                LovePoints = LovePoints + 1
+        for badline in badwords:
+            if (badline == word):
+                LovePoints = LovePoints - 1
 
 
 #def Reader():
