@@ -1,18 +1,21 @@
+import AI
+
+# constants
+MessagesPerDay = 11 
+LovePoints = 0
+
 def main():
     Tutorial()    
     gameover = False
     while (gameover is False): #the actual game loop itself
         for days in range(1,6): #the days loop, goes through day 1 to 5
             print(days)
-            for messages in range(1,MessagesPerDay): #the messages the user gets per day dictated by the constant
+            for messages in range(1, MessagesPerDay): #the messages the user gets per day dictated by the constant
                 prompt = input("Enter message here: ")
-                message = AIPrint(prompt)
-                    
+                message = AI.AIPrint(prompt)
+                LovePointsFinder(message)
+
         gameover = True
-        #f = AIPrint("say yo mama")
-        #print(f)
-        
-        #print(gameover)
 
 
 def Tutorial():
@@ -20,15 +23,21 @@ def Tutorial():
     nameCharacter = input("What is the name of your crush?")
 
 
-def LovePoints():
+def LovePointsFinder(message):
 
-    meter = 0
+    wordList = str(message).split
 
-    prompt = "fuiagfa"
+    for word in wordList:
+        for goodline in goodwords:
+            if (goodline == word):
+                LovePoints = LovePoints + 1
+        for badline in badwords:
+            if (badline == word):
+                LovePoints = LovePoints - 1
 
 
-def Reader():
+#def Reader():
 
-    f = open("AIPrompt.txt", "r")
+    #f = open("AIPrompt.txt", "r")
     
-    print(f.readline())
+    #print(f.readline())
