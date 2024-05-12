@@ -1,4 +1,4 @@
-import AIReal
+import DatingCharacter
 
 # constants
 MessagesPerDay = 50

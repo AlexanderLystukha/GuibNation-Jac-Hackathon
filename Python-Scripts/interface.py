@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
-import AIReal
+import DatingCharacter
 
 import Functionality
 
@@ -82,7 +82,7 @@ def send():
 
     counter = 1
     yo = ''
-    botlist = str(AIReal.AIPrint(txt2)).split()
+    botlist = str(DatingCharacter.AIPrint(txt2)).split()
     for x in botlist:
         if (counter % 10 == 0):
             yo += x + ' '
