@@ -5,6 +5,7 @@ MessagesPerDay = 11
 LovePoints = 0
 
 def main():
+
     Tutorial()    
     gameover = False
     while (gameover is False): #the actual game loop itself
@@ -12,7 +13,7 @@ def main():
             print(days)
             for messages in range(1, MessagesPerDay): #the messages the user gets per day dictated by the constant
                 prompt = input("Enter message here: ")
-                message = AI.AIPrint(prompt)
+                message = AI.AIPrint(prompt) #what the Ai says
                 LovePointsFinder(message)
 
         gameover = True
@@ -25,19 +26,21 @@ def Tutorial():
 
 def LovePointsFinder(message):
 
+
     wordList = str(message).split
 
     for word in wordList:
+
+        relativePath = "../textfiles/goodwords" #path for the good words
+        f = open(relativePath, "r") #opens the goodwords file
         for goodline in goodwords:
             if (goodline == word):
-                LovePoints = LovePoints + 1
+                LovePoints += 1
+        f.close()
+
+        relativePath = "../textfiles/badwords" #path for the bad words
+        f = open(relativePath, "r") #opens the badwords file
         for badline in badwords:
             if (badline == word):
-                LovePoints = LovePoints - 1
-
-
-#def Reader():
-
-    #f = open("AIPrompt.txt", "r")
-    
-    #print(f.readline())
+                LovePoints -= 1
+        f.close() #closes the file
