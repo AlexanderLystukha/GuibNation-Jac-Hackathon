@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
-
-
+import AI
+import time
 
 
 slol = Tk()
@@ -66,9 +66,19 @@ def send():
     #Box2.insert(END, txt2)
     Box.insert(END,'')
     Box.insert(END,'')
-    Box.insert(END,'msg')
+    #Box.insert(END,AI.AIPrint(txt2))
     Box2.insert(END,'')
     Box2.insert(END,'')
+
+
+
+    barup['value']=20
+    lol.update_idletasks()
+    
+
+
+
+
 
     
 
@@ -82,7 +92,7 @@ def send():
 
 
 lol = Tk()
-lol.geometry('1020x1050')# grandeur de la fenèetre
+lol.geometry('1020x800')# grandeur de la fenèetre
 txt2= ''
 txt = StringVar()
 
@@ -93,12 +103,12 @@ nom = Label(lol, text= 'Your crush '+nom2) #mettre du text
 nom.place(x=450, y=10)
 
 
-Label(lol, text='entrer').place(x=0, y=1000)# boite de texte
+Label(lol, text='entrer').place(x=0, y=700)# boite de texte
 e1 = Entry(lol, width=138, textvariable=txt)
 
-e1.place(x=50, y=1000)
+e1.place(x=50, y=700)
 
-send = Button(lol, text='send', width=15, command=send).place(x=885, y=1000)#button
+send = Button(lol, text='send', width=15, command=send).place(x=885, y=700)#button
 
 
 
@@ -109,22 +119,26 @@ Box2 =Listbox(lol, yscrollcommand= scrollbar.set)
 
     
 
-Box.place(width=500, height=950, y=50)    #  list box
-Box2.place(width=500, height=950, y=50, x=500)
+Box.place(width=500, height=650, y=50)    #  list box
+Box2.place(width=500, height=650, y=50, x=500)
 scrollbar.config(command=Box.yview)
 scrollbar.config(command= Box2.yview)
 
 
 
 
-progress = ttk.Progressbar(lol, orient="horizontal", length=300, mode="determinate") #progresse bar
-progress.place(x=700, y=10)
+barup = ttk.Progressbar(lol, orient="horizontal", length=300, mode="determinate") #progresse bar
+barup.place(x=700, y=10)
 
 
 msg = Message(lol, text='Current Day: ', width=100)
 
 msg.config(bg='red')
 msg.place(y=10)
+
+
+end = Button(lol, text='End day', width=15, command=lol.destroy).place(x=885 ,y=730)
+
 
 
 lol.mainloop()

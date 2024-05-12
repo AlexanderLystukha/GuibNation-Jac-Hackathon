@@ -16,5 +16,4 @@ def AIPrint(prompt): #print a message depending on the prompt that was passed to
     for chunk in stream:
         if chunk.choices[0].delta.content is not None:
              answer = chunk.choices[0].delta.content, end="" #holds the Ai message
-             print(answer)
              return answer
