@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
-import AI
+import AIReal
 
 
 slol = Tk()
@@ -66,7 +66,7 @@ def send():
 
     counter = 1
     yo = ''
-    botlist = str(AI.AIPrint(txt2)).split()
+    botlist = str(AIReal.AIPrint(txt2)).split()
     for x in botlist:
         if (counter % 10 == 0):
             yo += x + ' '
