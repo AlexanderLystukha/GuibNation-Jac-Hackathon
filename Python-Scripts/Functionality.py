@@ -1,4 +1,4 @@
-import AI
+import AIReal
 
 # constants
 MessagesPerDay = 50
