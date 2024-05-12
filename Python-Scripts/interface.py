@@ -4,6 +4,21 @@ from tkinter import ttk
 from tkinter import StringVar
 import AIReal
 
+import Functionality
+
+
+
+tlol = Tk()
+tlol.title('Dating Simulator')
+tlol.geometry('300x150')
+tuto = Label(tlol, text= 'Welcome to rizzler university, your goal?\n rizz up the ai.\n you have 5 days to get a date gl')
+tuto.pack()
+
+ok = Button(tlol, text='OK', width=15, command=tlol.destroy).place(x=95, y=110)
+
+
+
+tlol.mainloop()
 
 slol = Tk()
 slol.title('Dating Simulator')
