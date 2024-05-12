@@ -1,4 +1,4 @@
-import DatingCharacter
+
 
 # constants
 MessagesPerDay = 50
@@ -41,7 +41,7 @@ def Tutorial():
 def LovePointsFinder(message):
 
     wordList = str(message).split
-    print(wordList)
+    print('bob')
     for word in wordList:
 
         relativePath = "../textfiles/goodwords" #path for the good words

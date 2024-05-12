@@ -1,11 +1,5 @@
-from openai import OpenAI
-from interface import *  
-client = OpenAI(
-        organization='org-zJMwRnES61tJScenlvoyZzXz',
-        project='proj_yBhKCBQ3jejnIRdrzos6d1Yr',
-        api_key='sk-proj-ZuczHEBzkxt0DUwDz1YTT3BlbkFJ8jgW8msTKW85MP2EM3wF'
-    )
 
+<<<<<<< HEAD:Python-Scripts/DatingCharacter.py
 def AIPrint(prompt): #print a message depending on the prompt that was passed to the function
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
@@ -15,3 +9,5 @@ def AIPrint(prompt): #print a message depending on the prompt that was passed to
     ]
     )
     return completion.choices[0].message.content
+=======
+>>>>>>> 25b1554f1863aec87af0a2ec1fe6f0478d2579d6:Python-Scripts/AIReal.py
