@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
-
+import os
+print(os.listdir())
 
 
 
@@ -15,36 +16,7 @@ MessageCount = 0
 MessagesForDate =  250
 LovePoints = 0
 
-def main():
 
-    Tutorial()
-    MessageCount = 0    
-    gameover = False
-    
-    while (gameover is False): #the actual game loop itself
-        for days in range(1,6): #the days loop, goes through day 1 to 5
-            print(days)
-            while(prompt != "s" or  MessagesPerDay > MessageCount): #the messages the user gets per day dictated by the constant
-                prompt = input("Enter message here: ")
-                message = AI.AIPrint(prompt) #what the Ai says
-                LovePointsFinder(message)
-                MessageCount += 1
-        
-        if(LovePoints == 80):
-            while(prompt != "s" or  MessagesForDate > MessageCount): #the messages the user gets per day dictated by the constant
-                prompt = input("Enter message here: ")
-                message = AI.AIPrint(prompt) #what the Ai says
-                LovePointsFinder(message)
-                MessageCount += 1
-
-
-
-        gameover = True
-
-
-def Tutorial():
-    print('Welcome to rizzler university, your goal? rizz up the ai. you have 5 days to get a date gl')
-    nameCharacter = input("What is the name of your crush?")
 
 
 def LovePointsFinder(message):
@@ -53,16 +25,18 @@ def LovePointsFinder(message):
    
     for word in wordList:
 
-        goodwords = open(r"C:\Users\User\Desktop\vscode\Hackathon-balls\Python-Scripts\goodwords.txt", "r") #opens the goodwords file
+        goodwords = open("goodwords.txt", "r") #opens the goodwords file
         for goodline in goodwords:
             
-            if (str(goodline).strip().lower() == str(word).strip().lower()):
+            if (str(goodline).strip().lower() == str(word).strip().lower()[0:len(str(goodline).strip().lower())]):
                 LovePoints = LovePoints + 10
+            
         goodwords.close()
 
-        badwords = open(r"C:\Users\User\Desktop\vscode\Hackathon-balls\Python-Scripts\hatewords.txt", "r") #opens the badwords file
+
+        badwords = open("hatewords.txt", "r") #opens the badwords file
         for badline in badwords:
-            if (str(badline).strip().lower() == str(word).strip().lower()):
+            if (str(badline).strip().lower() == str(word).strip().lower()[0:len(str(badline).strip().lower())]):
                 LovePoints = LovePoints - 5
         badwords.close() #closes the file
 
@@ -270,8 +244,9 @@ def days():
     global msg
     global day
     global d
+    global nbsend
     d= d+ 1
-    
+    nbsend =0
     match d:
         case 1:
             day = 'Monday    '
