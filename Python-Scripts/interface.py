@@ -67,22 +67,32 @@ def send():
     counter = 1
 
     for x in wordList:
-        if (counter % 5 == 0):
+        if (counter % 10 == 0):
+            yo += x + ' '
             Box2.insert(END, yo)
-            Box.insert(END,'')
             yo = ''
         else:
             yo += x + ' '
         counter += 1
-    if (counter % 5 != 0):
+    if (counter % 10 != 0):
         Box2.insert(END, yo)
 
-    #Box2.insert(END, txt2)
-    Box.insert(END,'')
     Box.insert(END,'')
 
-    Box.insert(END,AI.AIPrint(txt2))
-    Box2.insert(END,'')
+    counter = 1
+    yo = ''
+    botlist = str(AI.AIPrint(txt2)).split()
+    for x in botlist:
+        if (counter % 10 == 0):
+            yo += x + ' '
+            Box.insert(END, yo)
+            yo = ''
+        else:
+            yo += x + ' '
+        counter += 1
+    if (counter % 10 != 0):
+        Box.insert(END, yo)
+
     Box2.insert(END,'')
 
 

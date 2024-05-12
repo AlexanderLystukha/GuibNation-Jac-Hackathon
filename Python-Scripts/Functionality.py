@@ -1,20 +1,34 @@
 import AI
 
 # constants
-MessagesPerDay = 11 
+MessagesPerDay = 50
+MessageCount = 0
+MessagesForDate =  250
 LovePoints = 0
 
 def main():
 
-    Tutorial()    
+    Tutorial()
+    MessageCount = 0    
     gameover = False
+    
     while (gameover is False): #the actual game loop itself
         for days in range(1,6): #the days loop, goes through day 1 to 5
             print(days)
-            for messages in range(1, MessagesPerDay): #the messages the user gets per day dictated by the constant
+            while(prompt != "s" or  MessagesPerDay > MessageCount): #the messages the user gets per day dictated by the constant
                 prompt = input("Enter message here: ")
                 message = AI.AIPrint(prompt) #what the Ai says
                 LovePointsFinder(message)
+                MessageCount += 1
+        
+        if(LovePoints == 80):
+            while(prompt != "s" or  MessagesForDate > MessageCount): #the messages the user gets per day dictated by the constant
+                prompt = input("Enter message here: ")
+                message = AI.AIPrint(prompt) #what the Ai says
+                LovePointsFinder(message)
+                MessageCount += 1
+
+
 
         gameover = True
 
@@ -25,7 +39,6 @@ def Tutorial():
 
 
 def LovePointsFinder(message):
-
 
     wordList = str(message).split
 
