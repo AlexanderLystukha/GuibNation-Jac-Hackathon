@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
 import AI
-import time
 
 
 slol = Tk()
@@ -66,7 +65,8 @@ def send():
     #Box2.insert(END, txt2)
     Box.insert(END,'')
     Box.insert(END,'')
-    #Box.insert(END,AI.AIPrint(txt2))
+
+    Box.insert(END,AI.AIPrint(txt2))
     Box2.insert(END,'')
     Box2.insert(END,'')
 
