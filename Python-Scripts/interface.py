@@ -6,7 +6,6 @@ from tkinter import StringVar
 
 
 
-
 slol = Tk()
 slol.title('Dating Simulator')
 slol.geometry('300x250')
@@ -43,8 +42,35 @@ nameb= Button(slol, text='Ready', width=15, command=getNom).place(x=95, y=210)
 
 slol.mainloop()
 
-wo
 
+
+
+def send():
+    global txt2
+    txt2 = txt.get()
+    wordList = txt2.split()
+    yo = ''
+    counter = 1
+
+    for x in wordList:
+        if (counter % 5 == 0):
+            Box2.insert(END, yo)
+            Box.insert(END,'')
+            yo = ''
+        else:
+            yo += x + ' '
+        counter += 1
+    if (counter % 5 != 0):
+        Box2.insert(END, yo)
+
+    #Box2.insert(END, txt2)
+    Box.insert(END,'')
+    Box.insert(END,'')
+    Box.insert(END,'msg')
+    Box2.insert(END,'')
+    Box2.insert(END,'')
+
+    
 
 
 
@@ -57,8 +83,8 @@ wo
 
 lol = Tk()
 lol.geometry('1020x1050')# grandeur de la fenèetre
-
-
+txt2= ''
+txt = StringVar()
 
 lol.title('Dating Simulator') #titre de la page
 
@@ -68,23 +94,28 @@ nom.place(x=450, y=10)
 
 
 Label(lol, text='entrer').place(x=0, y=1000)# boite de texte
-e1 = Entry(lol, width=138)
+e1 = Entry(lol, width=138, textvariable=txt)
 
 e1.place(x=50, y=1000)
 
-send = Button(lol, text='send', width=15, command=lol.destroy).place(x=885, y=1000)#button
+send = Button(lol, text='send', width=15, command=send).place(x=885, y=1000)#button
 
 
 
 scrollbar = Scrollbar(lol)               #scrollBar
 scrollbar.pack(side="right", fill="y")
-mylist = Listbox(lol, yscrollcommand=scrollbar.set)
-
+Box = Listbox(lol, yscrollcommand=scrollbar.set)
+Box2 =Listbox(lol, yscrollcommand= scrollbar.set)
 
     
 
-mylist.place(width=1000, height=950, y=50)    #  list box
-scrollbar.config(command=mylist.yview)
+Box.place(width=500, height=950, y=50)    #  list box
+Box2.place(width=500, height=950, y=50, x=500)
+scrollbar.config(command=Box.yview)
+scrollbar.config(command= Box2.yview)
+
+
+
 
 progress = ttk.Progressbar(lol, orient="horizontal", length=300, mode="determinate") #progresse bar
 progress.place(x=700, y=10)
