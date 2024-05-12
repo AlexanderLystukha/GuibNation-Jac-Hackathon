@@ -3,6 +3,21 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
 import AI
+import Functionality
+
+
+
+tlol = Tk()
+tlol.title('Dating Simulator')
+tlol.geometry('300x150')
+tuto = Label(tlol, text= 'Welcome to rizzler university, your goal?\n rizz up the ai.\n you have 5 days to get a date gl')
+tuto.pack()
+
+ok = Button(tlol, text='OK', width=15, command=tlol.destroy).place(x=95, y=110)
+
+
+
+tlol.mainloop()
 
 
 slol = Tk()
@@ -71,8 +86,8 @@ def send():
     Box2.insert(END,'')
 
 
-
-    barup['value']=20
+    Functionality.LovePointsFinder
+    barup['value']=Functionality.LovePoints
     lol.update_idletasks()
     
 
@@ -130,14 +145,49 @@ scrollbar.config(command= Box2.yview)
 barup = ttk.Progressbar(lol, orient="horizontal", length=300, mode="determinate") #progresse bar
 barup.place(x=700, y=10)
 
-
-msg = Message(lol, text='Current Day: ', width=100)
-
-msg.config(bg='red')
-msg.place(y=10)
+day= 'Monday'
 
 
-end = Button(lol, text='End day', width=15, command=lol.destroy).place(x=885 ,y=730)
+d=0
+
+def days():
+    global msg
+    global day
+    global d
+    d= d+ 1
+    
+    match d:
+        case 1:
+            day = 'Monday    '
+            msg = Message(lol, text=f'Current Day: {day}', width=300)
+        case 2:
+            day='Tuesday   '
+            msg = Message(lol, text=f'Current Day: {day}', width=300)
+        case 3:
+            day='Wednesday '
+            msg = Message(lol, text=f'Current Day: {day}', width=300)
+        case 4:
+            day= 'Thursday  '   
+            msg = Message(lol, text=f'Current Day: {day}', width=300)
+        case 5:
+            day='Friday    '
+            msg = Message(lol, text=f'Current Day: {day}', width=300)
+        case _:
+            if (Functionality.LovePoints>99):
+                lol.destroy()
+            else:
+                lol.destroy()
+    msg.config(bg='red')
+    msg.place(y=10)
+
+
+
+days()
+
+
+
+
+end = Button(lol, text='End day', width=15, command=days).place(x=885 ,y=730)
 
 
 
