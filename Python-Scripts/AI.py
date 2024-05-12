@@ -7,14 +7,11 @@ client = OpenAI(
     )
 
 def AIPrint(prompt): #print a message depending on the prompt that was passed to the function
-
-    stream = client.chat.completions.create(
-        model="gpt-3.5-turbo", #self explanatory, the model used
-        messages=[{"role": "user", "content": prompt}], #the prompt is in the content section
-        stream=True, 
+    completion = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "From now on your name is Pitbull, you are a guy that goes to the same school as me. You really like sports and skating. You also have other niche things about yourself that you will tell me overtime. no digital refrecences. Act dark and mysterious and be extremely hard to approach and to like someone back romantically."},
+        {"role": "user", "content": prompt}
+    ]
     )
-    for chunk in stream:
-        if chunk.choices[0].delta.content is not None:
-             answer = chunk.choices[0].delta.content, end="" #holds the Ai message
-             print(answer)
-             return answer
+    return completion.choices[0].message

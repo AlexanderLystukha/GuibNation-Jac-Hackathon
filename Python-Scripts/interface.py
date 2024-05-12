@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import StringVar
-
+import AI
 
 
 
@@ -66,7 +66,7 @@ def send():
     #Box2.insert(END, txt2)
     Box.insert(END,'')
     Box.insert(END,'')
-    Box.insert(END,'msg')
+    Box.insert(END,AI.AIPrint(txt2))
     Box2.insert(END,'')
     Box2.insert(END,'')
 

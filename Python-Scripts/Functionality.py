@@ -32,15 +32,15 @@ def LovePointsFinder(message):
     for word in wordList:
 
         relativePath = "../textfiles/goodwords" #path for the good words
-        f = open(relativePath, "r") #opens the goodwords file
+        goodwords = open(relativePath, "r") #opens the goodwords file
         for goodline in goodwords:
             if (goodline == word):
                 LovePoints += 1
-        f.close()
+        goodwords.close()
 
         relativePath = "../textfiles/badwords" #path for the bad words
-        f = open(relativePath, "r") #opens the badwords file
+        badwords = open(relativePath, "r") #opens the badwords file
         for badline in badwords:
             if (badline == word):
                 LovePoints -= 1
-        f.close() #closes the file
+        badwords.close() #closes the file
