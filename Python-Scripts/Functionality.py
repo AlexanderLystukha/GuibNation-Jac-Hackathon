@@ -41,14 +41,14 @@ def Tutorial():
 def LovePointsFinder(message):
 
     wordList = str(message).split
-
+    print(wordList)
     for word in wordList:
 
         relativePath = "../textfiles/goodwords" #path for the good words
         goodwords = open(relativePath, "r") #opens the goodwords file
         for goodline in goodwords:
             if (goodline == word):
-                LovePoints += 1
+                LovePoints += 50
         goodwords.close()
 
         relativePath = "../textfiles/badwords" #path for the bad words

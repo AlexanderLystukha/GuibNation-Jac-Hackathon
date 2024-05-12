@@ -70,6 +70,7 @@ def send():
         if (counter % 10 == 0):
             yo += x + ' '
             Box2.insert(END, yo)
+            Box.insert(END,'')
             yo = ''
         else:
             yo += x + ' '
@@ -86,6 +87,7 @@ def send():
         if (counter % 10 == 0):
             yo += x + ' '
             Box.insert(END, yo)
+            Box2.insert(END,'')
             yo = ''
         else:
             yo += x + ' '
@@ -97,20 +99,11 @@ def send():
 
 
     Functionality.LovePointsFinder
+    print(Functionality.LovePoints)
     barup['value']=Functionality.LovePoints
     lol.update_idletasks()
+    e1.delete(0, END)
     
-
-
-
-
-
-    
-
-
-
-
-
 
 
 
