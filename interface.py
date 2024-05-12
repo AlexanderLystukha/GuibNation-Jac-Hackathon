@@ -67,7 +67,7 @@ def riti():
 tlol = Tk()
 tlol.title('Dating Simulator')
 tlol.geometry('300x150')
-tuto = Label(tlol, text= 'Welcome to rizzler university, your goal?\n rizz up the ai.\n you have 5 days to get a date gl')
+tuto = Label(tlol, text= 'Welcome to ACDA, your goal?\n Attract the ai.\n you have 5 days to get convince the AI to go on a date with you\n based on a Attract Meter.')
 tuto.pack()
 
 ok = Button(tlol, text='OK', width=15, command=tlol.destroy).place(x=95, y=110)
@@ -264,18 +264,21 @@ def days():
             day='Friday    '
             msg = Message(lol, text=f'Current Day: {day}', width=300)
         case _:
+            lol.destroy()
+            vlol = Tk()
+            vlol.title('Dating Simulator')
+            vlol.geometry('500x50')
             if (LovePoints>99):
-                lol.destroy()
-                vlol = Tk()
-                vlol.title('Dating Simulator')
-                vlol.geometry('500x50')
-                vic = Label(vlol, text= 'You win') #mettre du text
+                
+                vic = Label(vlol, text= 'Congratulation!\n You now have a date!') #mettre du text
                 vic.pack()
-                vlol.mainloop()
+                
                 
                 
             else:
-                lol.destroy()
+                vic = Label(vlol, text= 'Task failed!\n You don\'t have a date!') #mettre du text
+                vic.pack()
+            vlol.mainloop()
     msg.config(bg='red')
     msg.place(y=10)
 
