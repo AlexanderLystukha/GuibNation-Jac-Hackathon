@@ -26,7 +26,6 @@ def Tutorial():
 
 def LovePointsFinder(message):
 
-
     wordList = str(message).split
 
     for word in wordList:
